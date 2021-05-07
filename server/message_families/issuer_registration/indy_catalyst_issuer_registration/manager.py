@@ -1,6 +1,7 @@
 """Classes to manage issuer registrations."""
 
 import logging
+from typing import Tuple
 
 from aries_cloudagent.core.error import BaseError
 from aries_cloudagent.core.profile import ProfileSession
@@ -37,7 +38,9 @@ class IssuerRegistrationManager:
         """
         return self._session
 
-    async def prepare_send(self, connection_id: str, issuer_registration: dict):
+    async def prepare_send(
+        self, connection_id: str, issuer_registration: dict
+    ) -> Tuple[IssuerRegistrationState, IssuerRegistration]:
         """
         Create an issuer registration state object and agent messages.
 
@@ -69,7 +72,7 @@ class IssuerRegistrationManager:
 
     async def receive_registration(
         self, connection_id: str, issuer_registration_message: dict
-    ):
+    ) -> IssuerRegistrationState:
         """
         Receive an issuer registration message.
 

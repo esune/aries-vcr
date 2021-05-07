@@ -16,10 +16,8 @@ class IssuerRegistrationState(BaseRecord):
 
     RECORD_TYPE = "issuer_registration"
     TAG_NAMES = {"connection_id", "thread_id", "initiator", "state"}
-    WEBHOOK_TOPIC = "issuer_registration"
-
-    INITIATOR_SELF = "self"
-    INITIATOR_EXTERNAL = "external"
+    RECORD_TOPIC = "issuer_registration"
+    EVENT_NAMESPACE = "acapy::webhook"
 
     STATE_REGISTRATION_SENT = "registration_sent"
     STATE_REGISTRATION_RECEIVED = "registration_received"
